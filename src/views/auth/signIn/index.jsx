@@ -72,7 +72,7 @@ function SignIn() {
   const [password, setPassword] = React.useState("");
   const handleClick = () => setShow(!show);
   const login = async () => {
-    await fetch('http://localhost:3000/api/user/login', {
+    await fetch('http://172.232.54.227:3000/api/user/login', {
       method: 'POST',
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
