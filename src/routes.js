@@ -4,6 +4,7 @@ import { Icon } from "@chakra-ui/react";
 import {
   MdBarChart,
   MdPerson,
+  MdLock,
   MdHome,
 } from "react-icons/md";
 
