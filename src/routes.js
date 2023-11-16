@@ -22,6 +22,7 @@ const routes = [
     name: "Dashboard",
     layout: "/admin",
     path: "/default",
+    sidebar: true,
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: MainDashboard,
   },
@@ -29,6 +30,7 @@ const routes = [
     name: "Interceptors",
     layout: "/admin",
     path: "/interceptor",
+    sidebar: true,
     icon: (
       <Icon
         as={MdPerson}
@@ -50,6 +52,7 @@ const routes = [
     name: "Connexion",
     layout: "/auth",
     path: "/sign-in",
+    sidebar: false,
     icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
     component: SignInCentered,
   },
