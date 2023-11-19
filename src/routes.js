@@ -19,9 +19,9 @@ import SignInCentered from "views/auth/signIn";
 
 const routes = [
   {
-    name: "Dashboard",
+    name: "Tableau de bord",
     layout: "/admin",
-    path: "/default",
+    path: "/dashboard",
     sidebar: true,
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: MainDashboard,
@@ -29,7 +29,7 @@ const routes = [
   {
     name: "Interceptors",
     layout: "/admin",
-    path: "/interceptor",
+    path: "/interceptors",
     sidebar: true,
     icon: (
       <Icon

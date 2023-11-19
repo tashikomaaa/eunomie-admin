@@ -9,8 +9,10 @@ import {
   Thead,
   Tr,
   useColorModeValue,
+  Link,
+  Button,
 } from "@chakra-ui/react";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import {
   useGlobalFilter,
   usePagination,
@@ -21,12 +23,13 @@ import {
 // Custom components
 import Card from "components/card/Card";
 import Menu from "components/menu/MainMenu";
+import { AddIcon } from "@chakra-ui/icons";
 export default function CheckTable(props) {
   const { columnsData, tableData } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
-
+  const [isOpen, setIsOpen] = useState(false)
   const tableInstance = useTable(
     {
       columns,
@@ -61,8 +64,11 @@ export default function CheckTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Check Table
+          Liste des interceptors
         </Text>
+        <Button onClick={() => setIsOpen(true)} leftIcon={<AddIcon />} colorScheme='teal' variant='solid'>
+          créer un interceptor
+        </Button>
         <Menu />
       </Flex>
       <Table {...getTableProps()} variant='simple' color='gray.500' mb='24px'>
@@ -94,38 +100,30 @@ export default function CheckTable(props) {
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
                   let data = "";
-                  if (cell.column.Header === "NAME") {
+                  if (cell.column.Header === "Actif") {
+                    console.log(cell.value)
                     data = (
                       <Flex align='center'>
                         <Checkbox
-                          defaultChecked={cell.value[1]}
+                          defaultChecked={cell.value}
                           colorScheme='brandScheme'
                           me='10px'
                         />
-                        <Text color={textColor} fontSize='sm' fontWeight='700'>
-                          {cell.value[0]}
-                        </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "PROGRESS") {
+                  } else if (cell.column.Header === "liens Facebook") {
                     data = (
-                      <Flex align='center'>
-                        <Text
-                          me='10px'
-                          color={textColor}
-                          fontSize='sm'
-                          fontWeight='700'>
-                          {cell.value}%
-                        </Text>
-                      </Flex>
-                    );
-                  } else if (cell.column.Header === "QUANTITY") {
-                    data = (
-                      <Text color={textColor} fontSize='sm' fontWeight='700'>
+                      <Link color={textColor} href={cell.value} isExternal fontSize='sm' fontWeight='700'>
                         {cell.value}
-                      </Text>
+                      </Link>
                     );
-                  } else if (cell.column.Header === "DATE") {
+                  } else if (cell.column.Header === "personae") {
+                    data = (
+                      <Link color={textColor} href={`/interceptor/`} fontSize='sm' fontWeight='700'>
+                        {cell.value}
+                      </Link>
+                    );
+                  } else {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}

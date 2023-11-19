@@ -44,6 +44,7 @@ import {
   MdBarChart,
   MdFileCopy,
 } from "react-icons/md";
+import Iframe from "react-iframe";
 import CheckTable from "views/admin/default/components/CheckTable";
 import ComplexTable from "views/admin/default/components/ComplexTable";
 import DailyTraffic from "views/admin/default/components/DailyTraffic";
@@ -82,6 +83,7 @@ export default function UserReports() {
           name='Earnings'
           value='$350.4'
         />
+
         <MiniStatistics
           startContent={
             <IconBox

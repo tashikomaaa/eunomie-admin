@@ -148,18 +148,6 @@ export default function HeaderLinks(props) {
                 See Documentation
               </Button>
             </Link>
-            <Link
-              w='100%'
-              href='https://github.com/horizon-ui/horizon-ui-chakra'>
-              <Button
-                w='100%'
-                h='44px'
-                variant='no-hover'
-                color={textColor}
-                bg='transparent'>
-                Try Horizon Free
-              </Button>
-            </Link>
           </Flex>
         </MenuList>
       </Menu>
@@ -201,12 +189,13 @@ export default function HeaderLinks(props) {
 							<Text fontSize="sm">Newsletter Settings</Text>
 						</MenuItem>
 						<MenuItem
+							onClick={() => {localStorage.removeItem('ACCESS_TOKEN'); localStorage.removeItem('REFRESH_TOKEN'); window.location.replace('/auth')}}
 							_hover={{ bg: 'none' }}
 							_focus={{ bg: 'none' }}
 							color="red.400"
 							borderRadius="8px"
 							px="14px">
-							<Text fontSize="sm">Log out</Text>
+							<Text fontSize="sm">Déconnexion</Text>
 						</MenuItem>
 					</Flex>
 				</MenuList>

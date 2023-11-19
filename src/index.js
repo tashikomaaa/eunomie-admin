@@ -7,6 +7,7 @@ import AdminLayout from 'layouts/admin';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from 'theme/theme';
 import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui';
+import PrivateRoute from 'views/PrivateRoute/PrivateRoute';
 const accessToken = localStorage.getItem('ACCESS_TOKEN')
 ReactDOM.render(
 	<ChakraProvider theme={theme}>
@@ -15,8 +16,8 @@ ReactDOM.render(
 				<HashRouter>
 					<Switch>
 						<Route path={`/auth`} component={AuthLayout} />
-						<Route path={`/admin`} component={AdminLayout} />
-						<Redirect from='/' to={accessToken ? '/admin' : '/auth'} />
+						<PrivateRoute path={'/admin'} component={AdminLayout} />
+						<PrivateRoute path={'/'} component={AdminLayout} />
 					</Switch>
 				</HashRouter>
 			</ThemeEditorProvider>
