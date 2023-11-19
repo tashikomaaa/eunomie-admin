@@ -1,4 +1,5 @@
 // Chakra imports
+import React from "react"
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import Card from "components/card/Card.js";
 // Custom components
